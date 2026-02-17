@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alonie Detailed Apparel</title>
+  <meta name="description" content="Luxury fashion collections by Alonie Detailed Apparel." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <!-- Skip link -->
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- Header -->
+  <header class="site-header" id="top">
+    <div class="container header-inner">
+      <div class="brand">
+        <a href="#top" class="brand-link" aria-label="Alonie Detailed Apparel home">
+          Alonie Detailed Apparel
+        </a>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+          <span class="sr-only">Toggle menu</span>
+        </button>
+
+        <div class="nav-menu" id="navMenu">
+          <a class="nav-link" href="#collections">Collections</a>
+        </div>
+      </nav>
+
+      <div class="header-actions">
+        <button class="cart-button" id="cartButton" aria-haspopup="dialog" aria-controls="cartDrawer">
+          <span class="cart-icon" aria-hidden="true">
+            <!-- cart svg -->
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+              <path d="M6 7h15l-2 9H7L6 7Z"></path>
+              <path d="M6 7 5 4H2"></path>
+              <circle cx="9" cy="20" r="1.5"></circle>
+              <circle cx="18" cy="20" r="1.5"></circle>
+            </svg>
+          </span>
+          <span class="cart-badge" id="cartCount" aria-label="Cart items">0</span>
+          <span class="sr-only">Open cart</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Cart Drawer -->
+  <div class="overlay" id="overlay" hidden></div>
+
+  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart" hidden>
+    <div class="cart-header">
+      <h2 class="cart-title">Your Cart</h2>
+      <button class="icon-btn" id="closeCart" aria-label="Close cart">
+        <!-- X svg -->
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6 6 18"></path>
+          <path d="M6 6 18 18"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div class="cart-body">
+      <div class="cart-empty" id="cartEmpty">
+        <p>Your cart is empty.</p>
+        <p class="muted">Add items from Collections to start an order.</p>
+      </div>
+
+      <ul class="cart-list" id="cartList" aria-label="Cart items"></ul>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-row">
+        <span class="muted">Total</span>
+        <strong id="cartTotal">₦0</strong>
+      </div>
+
+      <button class="btn btn-primary" id="makeOrderBtn" disabled>
+        Make Order
+      </button>
+
+      <button class="btn btn-ghost" id="clearCartBtn" disabled>
+        Clear Cart
+      </button>
+
+      <p class="fineprint">
+        “Make Order” will open WhatsApp with your cart details.
+      </p>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="pill">Luxury • Clean cuts • Premium finishing</p>
+          <h1>Wear luxury. Own your presence.</h1>
+          <p class="lead">
+            Alonie Detailed Apparel showcases refined fashion pieces made with detail, elegance, and confidence.
+            Explore collections and place your order directly.
+          </p>
+
+          <div class="hero-cta">
+            <a class="btn btn-primary" href="#collections">View Collections</a>
+            <a class="btn btn-outline" href="#footer">Contact</a>
+          </div>
+        </div>
+
+        <div class="hero-image" aria-label="Owner image placeholder">
+          <!--  -->
+          <div class="hero-image-frame">
+            <div class="hero-image-wrapper">
+              <img src="images/profile2.jpg" alt="Owner of Alonie Detailed Apparel" class="hero-img" />
+            </div>
+          </div>
+          <!--  -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Collections -->
+    <section class="collections" id="collections">
+      <div class="container">
+        <div class="section-head">
+          <h2>Collections</h2>
+          <p class="muted">Swipe/scroll to explore. Add your favorites to cart.</p>
+        </div>
+
+        <div class="catalogue" aria-label="Collections catalogue">
+          <div class="catalogue-track" id="catalogueTrack">
+            <!-- JS will render product cards here -->
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Sticky WhatsApp -->
+  <a class="whatsapp-fab" id="whatsappFab" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" hidden>
+    <span class="wa-icon" aria-hidden="true">
+      <!-- WhatsApp-ish bubble svg (simple) -->
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
+        <path d="M20 11.5a7.5 7.5 0 0 1-11.7 6.3L4 19l1.3-4.1A7.5 7.5 0 1 1 20 11.5Z"></path>
+        <path
+          d="M8.7 9.6c.2-.6.5-.6.8-.6h.6c.2 0 .4.1.5.3l.7 1.7c.1.3.1.5-.1.7l-.5.5c.5 1 1.4 1.8 2.4 2.3l.5-.5c.2-.2.5-.2.7-.1l1.7.7c.2.1.3.3.3.5v.6c0 .3 0 .6-.6.8-.6.2-2.1.3-4.2-1.4-2.1-1.7-2.1-3.6-1.8-4.4Z">
+        </path>
+      </svg>
+    </span>
+    <span class="wa-text">WhatsApp</span>
+  </a>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container footer-inner">
+      <div>
+        <h3 class="footer-brand">Alonie Detailed Apparel</h3>
+        <p class="muted">Luxury fashion collections. Order directly via WhatsApp.</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#top">Back to top</a>
+        <a href="#collections">Collections</a>
+      </div>
+
+      <p class="copyright muted">
+        © <span id="year"></span> Alonie Detailed Apparel. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
