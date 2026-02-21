@@ -5,178 +5,264 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Alonie Detailed Apparel</title>
-  <meta name="description" content="Luxury fashion collections by Alonie Detailed Apparel." />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 
 <body>
-  <!-- Skip link -->
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- Header -->
   <header class="site-header" id="top">
-    <div class="container header-inner">
-      <div class="brand">
-        <a href="#top" class="brand-link" aria-label="Alonie Detailed Apparel home">
-          Alonie Detailed Apparel
-        </a>
-      </div>
+    <div class="header-inner">
+      <button class="icon-btn" id="menuBtn" aria-label="Open menu" aria-controls="megaMenu" aria-expanded="false">
+        <span style="margin-top: -25px;" class="icon-lines" aria-hidden="true">&#9776;</span>
+      </button>
 
-      <nav class="nav" aria-label="Primary">
-        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navMenu">
-          <span class="nav-toggle-icon" aria-hidden="true"></span>
-          <span class="sr-only">Toggle menu</span>
+      <a class="brand" href="#" aria-label="Homepage">
+        <span class="brand-wordmark"><img src='assests/alone_logo_transparent.png' alt='' width="200"></span>
+      </a>
+
+      <div class="header-actions" aria-label="Utilities">
+        <button class="pill" id="localeBtn" type="button" aria-haspopup="dialog" aria-controls="localeModal">
+          Location / Language
         </button>
 
-        <div class="nav-menu" id="navMenu">
-          <a class="nav-link" href="#collections">Collections</a>
-        </div>
-      </nav>
-
-      <div class="header-actions">
-        <button class="cart-button" id="cartButton" aria-haspopup="dialog" aria-controls="cartDrawer">
-          <span class="cart-icon" aria-hidden="true">
-            <!-- cart svg -->
-            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
-              <path d="M6 7h15l-2 9H7L6 7Z"></path>
-              <path d="M6 7 5 4H2"></path>
-              <circle cx="9" cy="20" r="1.5"></circle>
-              <circle cx="18" cy="20" r="1.5"></circle>
-            </svg>
-          </span>
-          <span class="cart-badge" id="cartCount" aria-label="Cart items">0</span>
-          <span class="sr-only">Open cart</span>
+        <button class="pill" id="contrastBtn" type="button" aria-pressed="false" title="Toggle high contrast">
+          Change Background 
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Cart Drawer -->
+  <!-- Overlay (shared) -->
   <div class="overlay" id="overlay" hidden></div>
 
-  <aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart" hidden>
-    <div class="cart-header">
-      <h2 class="cart-title">Your Cart</h2>
-      <button class="icon-btn" id="closeCart" aria-label="Close cart">
-        <!-- X svg -->
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M18 6 6 18"></path>
-          <path d="M6 6 18 18"></path>
-        </svg>
+  <!-- Mega Menu -->
+  <aside class="mega" id="megaMenu" aria-hidden="true">
+    <div class="mega-top">
+      <strong class="mega-title">Menu</strong>
+      <button class="icon-btn" id="closeMenuBtn" aria-label="Close menu">
+        <span class="icon-x" aria-hidden="true"></span>
       </button>
     </div>
 
-    <div class="cart-body">
-      <div class="cart-empty" id="cartEmpty">
-        <p>Your cart is empty.</p>
-        <p class="muted">Add items from Collections to start an order.</p>
+    <div class="mega-content">
+      <div class="mega-col">
+        <h3>Fashion</h3>
+        <a href="#">Haute Couture</a>
+        <a href="#">Fashion</a>
+        <a href="#">Handbags</a>
+        <a href="#">Shoes</a>
+        <a href="#">Eyewear</a>
       </div>
 
-      <ul class="cart-list" id="cartList" aria-label="Cart items"></ul>
+      <div class="mega-col">
+        <h3>Jewellery & Watches</h3>
+        <a href="#">High Jewellery</a>
+        <a href="#">Fine Jewellery</a>
+        <a href="#">Watches</a>
+      </div>
+
+      <div class="mega-col">
+        <h3>Fragrance & Beauty</h3>
+        <a href="#">Fragrance</a>
+        <a href="#">Makeup</a>
+        <a href="#">Skincare</a>
+      </div>
+
+      <div class="mega-col">
+        <h3>Corporate</h3>
+        <a href="#">About</a>
+        <a href="#">Careers</a>
+        <a href="#">Legal</a>
+      </div>
     </div>
 
-    <div class="cart-footer">
-      <div class="cart-row">
-        <span class="muted">Total</span>
-        <strong id="cartTotal">₦0</strong>
-      </div>
-
-      <button class="btn btn-primary" id="makeOrderBtn" disabled>
-        Make Order
-      </button>
-
-      <button class="btn btn-ghost" id="clearCartBtn" disabled>
-        Clear Cart
-      </button>
-
-      <p class="fineprint">
-        “Make Order” will open WhatsApp with your cart details.
-      </p>
+    <div class="mega-foot">
+      <a class="btn" href="#main">Explore</a>
     </div>
   </aside>
 
-  <!-- Main -->
+  <!-- Locale Modal -->
+  <section class="modal" id="localeModal" role="dialog" aria-modal="true" aria-labelledby="localeTitle"
+    aria-hidden="true">
+    <div class="modal-card" role="document">
+      <div class="modal-head">
+        <h2 id="localeTitle">Location & Language</h2>
+        <button class="icon-btn" id="closeLocaleBtn" aria-label="Close modal">
+          <span class="icon-x" aria-hidden="true"></span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <p class="muted">Choose your preferred experience. (Demo UI — wire it to your backend later.)</p>
+
+        <div class="form-grid">
+          <div class="field">
+            <label for="country">Location</label>
+            <select id="country">
+              <option value="za" selected>South Africa</option>
+              <option value="ng">Nigeria</option>
+              <option value="uk">United Kingdom</option>
+              <option value="us">United States</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="language">Language</label>
+            <select id="language">
+              <option value="en" selected>English</option>
+              <option value="fr">Français</option>
+              <option value="yo">Yorùbá</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="modal-actions">
+          <button class="btn ghost" id="resetLocaleBtn" type="button">Reset</button>
+          <button class="btn" id="saveLocaleBtn" type="button">Save</button>
+        </div>
+
+        <p class="fineprint">
+          Saved to <code>localStorage</code> for this demo.
+        </p>
+      </div>
+    </div>
+  </section>
+
   <main id="main">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-text">
-          <p class="pill">Luxury • Clean cuts • Premium finishing</p>
-          <h1>Wear luxury. Own your presence.</h1>
-          <p class="lead">
-            Alonie Detailed Apparel showcases refined fashion pieces made with detail, elegance, and confidence.
-            Explore collections and place your order directly.
-          </p>
-
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#collections">View Collections</a>
-            <a class="btn btn-outline" href="#footer">Contact</a>
-          </div>
+    <!-- Snap feed -->
+    <section class="snap-feed" aria-label="Editorial story feed">
+      <!-- Tip: put real images in /assets and keep these names -->
+      <article class="tile hero" data-bg="assets/hero-1.jpg">
+        <div class="tile-media" role="img" aria-label="Haute Couture editorial image"></div>
+        <div class="tile-content">
+          <p class="kicker">Haute Couture</p>
+          <h1>Spring Summer 2026</h1>
+          <a class="cta" href="#">See more</a>
         </div>
+        <div class="tile-hint" aria-hidden="true">Scroll</div>
+      </article>
 
-        <div class="hero-image" aria-label="Owner image placeholder">
-          <!--  -->
-          <div class="hero-image-frame">
-            <div class="hero-image-wrapper">
-              <img src="images/a-p-logo.jpeg" alt="Owner of Alonie Detailed Apparel" class="hero-img" />
+      <article class="tile" data-bg="assets/hero-2.jpg">
+        <div class="tile-media" role="img" aria-label="Makeup editorial image"></div>
+        <div class="tile-content">
+          <p class="kicker">Make-up</p>
+          <h2>DENIM MAKEUP COLLECTION</h2>
+          <a class="cta" href="#">Discover</a>
+        </div>
+      </article>
+
+      <article class="tile" data-bg="assets/hero-3.jpg">
+        <div class="tile-media" role="img" aria-label="Fashion editorial image"></div>
+        <div class="tile-content">
+          <p class="kicker">Fashion</p>
+          <h2>Spring Summer 2026 Pre-Collection</h2>
+          <a class="cta" href="#">See more</a>
+        </div>
+      </article>
+
+      <article class="tile" data-bg="assets/hero-4.jpg">
+        <div class="tile-media" role="img" aria-label="Fragrance editorial image"></div>
+        <div class="tile-content">
+          <p class="kicker">Fragrance</p>
+          <h2>CHANCE EAU SPLENDIDE</h2>
+          <a class="cta" href="#">Discover</a>
+        </div>
+      </article>
+
+      <article class="tile" data-bg="assets/hero-5.jpg">
+        <div class="tile-media" role="img" aria-label="Fine Jewellery editorial image"></div>
+        <div class="tile-content">
+          <p class="kicker">Fine Jewellery</p>
+          <h2>COCO CRUSH</h2>
+          <a class="cta" href="#">See more</a>
+        </div>
+      </article>
+
+      <!-- Last slide = utilities + footer to keep snap experience -->
+      <article class="tile end">
+        <div class="end-wrap">
+          <section class="utility" aria-label="Services">
+            <div class="utility-grid">
+              <div class="utility-card">
+                <h3>Contact Advisor</h3>
+                <p>Get help with products, services, and boutiques.</p>
+                <a class="btn ghost" href="#">Contact us</a>
+              </div>
+
+              <div class="utility-card">
+                <h3>Find a store</h3>
+                <p>Enter a location to find the closest stores.</p>
+                <form class="store-form" onsubmit="return false;">
+                  <label class="sr-only" for="storeQuery">City or zip code</label>
+                  <input id="storeQuery" type="text" placeholder="City or zip code" autocomplete="postal-code" />
+                  <button class="btn" type="button">Search</button>
+                </form>
+                <p class="fineprint">Later: connect to Google Maps.</p>
+              </div>
+
+              <div class="utility-card">
+                <h3>Newsletter</h3>
+                <p>Subscribe to receive the latest news.</p>
+                <form class="store-form" onsubmit="return false;">
+                  <label class="sr-only" for="email">Email</label>
+                  <input id="email" type="email" placeholder="Email" />
+                  <button class="btn" type="button">OK</button>
+                </form>
+              </div>
             </div>
-          </div>
-          <!--  -->
-        </div>
-      </div>
-    </section>
+          </section>
 
-    <!-- Collections -->
-    <section class="collections" id="collections">
-      <div class="container">
-        <div class="section-head">
-          <h2>Collections</h2>
-          <p class="muted">Swipe/scroll to explore. Add your favorites to cart.</p>
-        </div>
+          <footer class="site-footer">
+            <div class="footer-inner">
+              <div class="footer-col">
+                <h4>Explore</h4>
+                <a href="#">Haute Couture</a>
+                <a href="#">Fashion</a>
+                <a href="#">High Jewellery</a>
+                <a href="#">Fine Jewellery</a>
+                <a href="#">Watches</a>
+                <a href="#">Eyewear</a>
+                <a href="#">Fragrance</a>
+                <a href="#">Makeup</a>
+                <a href="#">Skincare</a>
+              </div>
 
-        <div class="catalogue" aria-label="Collections catalogue">
-          <div class="catalogue-track" id="catalogueTrack">
-            <!-- JS will render product cards here -->
-          </div>
+              <div class="footer-col">
+                <h4>Online Services</h4>
+                <a href="#">Care & Services</a>
+                <a href="#">FAQ</a>
+                <a href="#">Find a store</a>
+              </div>
+
+              <div class="footer-col">
+                <h4>The House</h4>
+                <a href="#">Careers</a>
+                <a href="#">Legal Statement</a>
+                <a href="#">Privacy Policy</a>
+              </div>
+
+              <div class="footer-col">
+                <h4>Follow</h4>
+                <a href="#">Instagram</a>
+                <a href="#">Facebook</a>
+                <a href="#">YouTube</a>
+                <a href="#">LinkedIn</a>
+              </div>
+            </div>
+
+            <div class="footer-bottom">
+              <small>© Your Brand. Layout study / demo build.</small>
+              <a class="to-top" href="#top">Back to top</a>
+            </div>
+          </footer>
         </div>
-      </div>
+      </article>
     </section>
   </main>
 
-  <!-- Sticky WhatsApp -->
-  <a class="whatsapp-fab" id="whatsappFab" href="https://wa.me/+2348164186464" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" hidden>
-    <span class="wa-icon" aria-hidden="true">
-      <!-- WhatsApp-ish bubble svg (simple) -->
-      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8">
-        <path d="M20 11.5a7.5 7.5 0 0 1-11.7 6.3L4 19l1.3-4.1A7.5 7.5 0 1 1 20 11.5Z"></path>
-        <path
-          d="M8.7 9.6c.2-.6.5-.6.8-.6h.6c.2 0 .4.1.5.3l.7 1.7c.1.3.1.5-.1.7l-.5.5c.5 1 1.4 1.8 2.4 2.3l.5-.5c.2-.2.5-.2.7-.1l1.7.7c.2.1.3.3.3.5v.6c0 .3 0 .6-.6.8-.6.2-2.1.3-4.2-1.4-2.1-1.7-2.1-3.6-1.8-4.4Z">
-        </path>
-      </svg>
-    </span>
-    <span class="wa-text">WhatsApp</span>
-  </a>
-
-  <!-- Footer -->
-  <footer class="footer" id="footer">
-    <div class="container footer-inner">
-      <div>
-        <h3 class="footer-brand">Alonie Detailed Apparel</h3>
-        <p class="muted">Luxury fashion collections. Order directly via WhatsApp.</p>
-      </div>
-
-      <div class="footer-links">
-        <a href="#top">Back to top</a>
-        <a href="#collections">Collections</a>
-      </div>
-
-      <p class="copyright muted">
-        © <span id="year"></span> Alonie Detailed Apparel. All rights reserved.
-      </p>
-    </div>
-  </footer>
-
-  <script src="script.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
